@@ -1,5 +1,8 @@
 <html>
 	<head>
+		<script type="text/javascript" src="jquery.js"></script>
+			
+		</script>
 		<style>
 			table {
 				border: 1px solid black;
@@ -22,11 +25,17 @@
 			}
 				tableHtml = tableHtml.concat("<tr>");
 				for(var column = 0; column < 7; column++){
-					tableHtml = tableHtml.concat("<td><table width=" + 120 + "><tr><th id=" + countTo42 + "></th></tr><tr><td onclick = "+evenClick(1)+">1</td></tr><tr><td>1</td></tr><tr><td>1</td></tr><tr><td>1</td></tr></table></td>")
+					tableHtml = tableHtml.concat("<td><table width=" + 120 + "height=" + 100+"><tr><th id=" + countTo42 + "></th></tr>")
+					for(var evenTd = 1; evenTd < 5; evenTd++){
+						tableHtml = tableHtml.concat("<tr><td  class=\"EvenTd\" id=\""+countTo42+"even"+evenTd+"\">"+evenTd+"</td></tr>");
+					}
+					tableHtml = tableHtml.concat("</table></td>");
 					countTo42++;
 				}
 				tableHtml = tableHtml.concat("</tr>");
 			}
+									window.console.log(tableHtml);
+
 			miniCalendarTable2.innerHTML = tableHtml;
 			//window.console.log(tableHtml);
 			//var miniCalendarTable = document.getElementById("mainCalendar");
@@ -34,15 +43,19 @@
 			for(var i = 1; i <= 42; i++){
 				document.getElementById(i).innerHTML = i;
 			}
+							//document.getElementById("1even1").innerHTML = "999";
+
 			function evenClick(id){
 				window.console.log(id);
 			}
-			
-			$(document).ready(function(){
-				$("td").click(function(){
-					window.console.log("id");
+			for(var i = 1; i<42; i++){
+				$(document).ready(function(){
+					$(".EvenTd").click(function(){
+						$(this).toggle();
+					});
 				});
-			});
+			}
+			
 		
 		</script>	
 	</main>		
