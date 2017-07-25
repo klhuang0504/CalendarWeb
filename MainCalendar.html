@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<style>
+			table {
+				border: 1px solid black;
+				border-collapse: collapse;
+			}
+		</style>
+	</head>
+	<main>
+		<table id="mainCalendar">
+
+		</table>
+		
+		<script>
+			var countTo42 = 1;
+			var miniCalendarTable2 = document.getElementById("mainCalendar");
+			var tableHtml = "";
+			for(var row = 0; row < 6; row++){
+			if(countTo42 > 42){
+				break;
+			}
+				tableHtml = tableHtml.concat("<tr>");
+				for(var column = 0; column < 7; column++){
+					tableHtml = tableHtml.concat("<td><table width=" + 120 + "><tr><th id=" + countTo42 + "></th></tr><tr><td onclick = "+evenClick(1)+">1</td></tr><tr><td>1</td></tr><tr><td>1</td></tr><tr><td>1</td></tr></table></td>")
+					countTo42++;
+				}
+				tableHtml = tableHtml.concat("</tr>");
+			}
+			miniCalendarTable2.innerHTML = tableHtml;
+			//window.console.log(tableHtml);
+			//var miniCalendarTable = document.getElementById("mainCalendar");
+			//var oneDayTable = "<table><tr><th>1</th></tr><tr><td>事情1</td></tr><tr><td>事情2</td></tr><tr><td>事情3</td></tr><tr><td>事情4</td></tr></table>"
+			for(var i = 1; i <= 42; i++){
+				document.getElementById(i).innerHTML = i;
+			}
+			function evenClick(id){
+				window.console.log(id);
+			}
+			
+			$(document).ready(function(){
+				$("td").click(function(){
+					window.console.log("id");
+				});
+			});
+		
+		</script>	
+	</main>		
+<html>
+

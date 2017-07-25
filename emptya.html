@@ -1,0 +1,83 @@
+
+<html>
+<body onload="gotoToday()">
+<button>Create</button>
+<button onclick="gotoLastMonth()">前一月</button>
+<button onclick="gotoToday()">今天</button>
+<button onclick="gotoNextMonth()">後一月</button>
+
+<table id="miniCalendar">
+ <tr>
+    <th>一</th>
+    <th>二</th>
+	<th>三</th>
+	<th>四</th>
+	<th>五</th>
+	<th>六</th>
+	<th>日</th>
+  </tr>
+</table>
+
+<script>
+	function gotoToday(){
+		addDate(new Date());
+	}
+
+	function gotoNextMonth(){
+		var today = new Date()
+		var targetDay = new Date(today.getFullYear(),today.getMonth()+1,1);
+		addDate(targetDay);
+	}
+	
+	function gotoLastMonth(){
+		var today = new Date()
+		var targetDay = new Date(today.getFullYear(),today.getMonth()-1,1);
+		addDate(targetDay);
+	}
+
+	function addDate(today){
+		delRow();
+		var miniCalendarTable = document.getElementById("miniCalendar");
+		var days = new Date(today.getFullYear(),today.getMonth()+1,0).getDate();
+		var startDay = new Date(today.getFullYear(),today.getMonth(),1).getDay()-1;
+
+		var count = 0;
+		var week = (days+startDay)/7;
+		for(var w = 0 ; w<week;w++){
+		var row = miniCalendarTable.insertRow(miniCalendarTable.rows.length);
+
+			for(var i = 0;i<7;i++){
+				if(count == days+startDay ){
+					break;
+				}
+						var newCell  = row.insertCell(i);
+
+				if(count<startDay){
+						var newText  = document.createTextNode('');
+
+				}else{
+						var newText  = document.createTextNode(count+1-startDay);
+				}
+				
+				newCell.appendChild(newText);
+				count++;
+			}
+		}
+	}
+	
+	function delRow(){
+		var num = document.getElementById("miniCalendar").rows.length;
+		for(var i =num;i>1;i--){
+			document.getElementById("miniCalendar").deleteRow(i-1);
+		}
+	}
+	
+	function testAlert(){
+		alert("test");
+	}
+	
+
+</script>
+
+</body>
+</html>
