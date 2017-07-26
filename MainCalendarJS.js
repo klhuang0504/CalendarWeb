@@ -55,40 +55,64 @@ $("#mainCalendar").mousemove(function(e) {
 for (var i = 1; i < 43; i++) {
 	var opener = document.getElementById(i);
 	opener.onclick = function() {
-
-		// window.console.log("我先");
-
-
 		dimmer.onclick = function() {
 			document.body.removeChild(this);
 			lightbox.style.visibility = 'hidden';
+			document.getElementById("eventTitle").value = "";
 		}
 		document.body.appendChild(dimmer);
 		lightbox.style.visibility = 'visible';
 		lightbox.style.top = mousePositionY;
 		lightbox.style.left = mousePositionX;
+		// var textbox = document.getElementById("eventTitle");
+		document.getElementById("eventTitle").focus();
+		// textbox.focus();
+		// textbox.scrollIntoView();
+		// window.console.log("我先");
 		return false;
 	}
 }
 // }
 function addEvent() {
-	document.getElementById(focusDateId + "event1").innerHTML = document.getElementById(
-		"eventTitle").value;
+	for (var i = 1; i < 5; i++) {
+		// window.console.log(focusDateId + event + i);
+		var text = document.getElementById(focusDateId + "event" + i).innerText;
+		// window.console.log(text);
+		if (text != null && text != "") {
+			continue;
+		}
+		document.getElementById(focusDateId + "event" + i).innerHTML = document.getElementById(
+			"eventTitle").value;
+		break;
+	}
 	document.getElementById("eventTitle").value = "";
 	document.body.removeChild(dimmer);
 	lightbox.style.visibility = 'hidden';
 }
 
+// function textboxGetFocus() {
+// 	window.console.log($("#eventTitle").value);
+// 	$("#eventTitle").focus();
+// }
+
+
+function textOnfocus() {
+	window.console.log("已經到公海了");
+}
+
 $(document).ready(function() {
 	$(".EventTd").click(function() {
-		// window.console.log(this.innerText);
+		// window.console.log("已經到公海了");
 		//當下點的欄位是否有值
+
+		// textboxGetFocus();
 		if (this.innerText != null && this.innerText != "") {
 			document.getElementById("eventTitle").value = this.innerText;
 		}
+		focusDateId = this.parentNode.parentNode.parentNode.id;
+
 		//找到沒值的那個欄位
 		// $(this).toggle();
-		focusDateId = this.parentNode.parentNode.parentNode.id;
 		// window.console.log(this.parentNode.nodeName);
 		// window.console.log(this.parentNode.parentNode.nodeName);
 		// window.console.log(this.parentNode.parentNode.parentNode.id);
