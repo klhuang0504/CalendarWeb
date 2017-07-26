@@ -2,8 +2,31 @@
 	<head>
 		<script type="text/javascript" src="jquery.js"></script>
 
+<<<<<<< HEAD
 		</script>
 		<style>
+=======
+		<style>		
+			#lightbox{
+				visibility:hidden;
+				position:absolute;
+				background:white;
+				border:2px solid #3c3c3c;
+				color:black;
+				z-index:100;
+				width: 200px;
+				height:100px;
+				padding:20px;
+			}
+
+			.dimmer{
+				position: absolute;
+				opacity: .5;
+				top: 0;
+				z-index:99;
+			}
+			
+>>>>>>> 5a3ec271adcb7a221aff64e015ae9e1138cc80fb
 			table {
 				border: 1px solid black;
 				border-collapse: collapse;
@@ -11,9 +34,14 @@
 		</style>
 	</head>
 	<main>
+		<div id="lightbox">
+			Event: <input type="text" id="eventTitle"></input>
+			<button onclick="addEven()"> Create </button>
+		</div>
 		<table id="mainCalendar">
 
 		</table>
+<<<<<<< HEAD
 
 		<script>
 			var countTo42 = 1;
@@ -55,6 +83,17 @@
 					});
 				});
 			}
+=======
+		<SCRIPT language=JavaScript src="MainCalendarJS.js"></SCRIPT>
+
+		<!-- <script> -->
+			<!-- setCalendar(); -->
+			<!-- calendarClick(); -->
+		<!-- </scoped> -->
+		
+	</main>		
+<html>
+>>>>>>> 5a3ec271adcb7a221aff64e015ae9e1138cc80fb
 
 
 		</script>
