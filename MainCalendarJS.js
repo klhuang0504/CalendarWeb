@@ -12,7 +12,7 @@ dimmer.style.height = window.innerHeight + 'px';
 dimmer.className = 'dimmer';
 
 function init(){
-		
+
 }
 
 // function setCalendar(){
@@ -53,12 +53,12 @@ $("#mainCalendar").mousemove(function(e) {
 for(var i = 1; i < 43; i++){
 	var opener = document.getElementById(i);
 	opener.onclick = function(){
-		
+
 		// window.console.log("我先");
 
 
 		dimmer.onclick = function(){
-			document.body.removeChild(this);   
+			document.body.removeChild(this);
 			lightbox.style.visibility = 'hidden';
 		}
 		document.body.appendChild(dimmer);
@@ -72,7 +72,7 @@ for(var i = 1; i < 43; i++){
 function addEvent(){
 	document.getElementById(focusDateId+"event1").innerHTML =  document.getElementById("eventTitle").value;
 	document.getElementById("eventTitle").value = "";
-	document.body.removeChild(dimmer);   
+	document.body.removeChild(dimmer);
 	lightbox.style.visibility = 'hidden';
 }
 
@@ -82,8 +82,13 @@ $(document).ready(function(){
 		//當下點的欄位是否有值
 		if(this.innerText != null && this.innerText != ""){
 			document.getElementById("eventTitle").value = this.innerText;
-		}		
+		}
 		//找到沒值的那個欄位
+		for(var i=1;i<4;i++){
+			if(this.innerText != null && this.innerText != ""){
+				document.getElementById("eventTitle").value = this.innerText;
+			}
+		}
 		// $(this).toggle();
 		focusDateId = this.parentNode.parentNode.parentNode.id;
 		// window.console.log(this.parentNode.nodeName);
