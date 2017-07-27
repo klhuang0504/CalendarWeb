@@ -23,30 +23,27 @@
 				border: 1px solid black;
 				border-collapse: collapse;
 			}
+			.eventWithContent{
+				padding:1%;
+				background:#33A2FF;
+				background-clip:content-box;
+			}
+
 		</style>
 	</head>
 	<main>
-		<!-- <form action="/action_page.php">
-  First name: <input type="text" name="fname" ><br>
-  Last name: <input type="text" name="lname" autofocus><br>
-  <input type="submit">
-</form> -->
 		<div id="lightbox">
-			<!-- <form> -->
 				Event: <input type="text" id="eventTitle">
-			<!-- </form> -->
-			<button onclick="addEvent()"> Create </button>
+			<button onclick="addEvent()" id="createEventButton"> Create </button>
+			<button onclick="editEvent()" id="editEventButton"> Save </button>
+			<button onclick="deleteEvent()" id="deleteEventButton"> Delete </button>
+
 
 		</div>
 		<table id="mainCalendar">
 
 		</table>
 		<SCRIPT language=JavaScript src="MainCalendarJS.js"></SCRIPT>
-
-		<!-- <script> -->
-			<!-- setCalendar(); -->
-			<!-- calendarClick(); -->
-		<!-- </scoped> -->
 
 	</main>
 <html>

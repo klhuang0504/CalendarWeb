@@ -1,6 +1,13 @@
 <main>
-<h1>Calendar Topdat 2017/07/21 </h1>
-
+<!-- <h1>Calendar Today </h1> -->
+<h1 id="today"></h1>
+<script>
+  var today = new Date();
+  window.console.log(today.getFullYear() +"-"+ today.getMonth() +"-"+ today.getDate());
+  window.console.log(document.getElementById("today"));
+  document.getElementById("today").innerHTML = "Calendar Today  " + today.getFullYear() +"-"+ today.getMonth() +"-"+ today.getDate();
+</script>
 
 
 </main>
+  
